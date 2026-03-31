@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Padel Pro - Americano 12</title>
+    <!-- Enllaç al fitxer d'estils -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 id="dynamic-title">PADEL PRO SERIES</h1>
+        <p id="dynamic-subtitle">Americano 12 Jugadors</p>
+    </header>
+
+    <!-- PANTALLA INICI: NOM TORNEIG -->
+    <div id="start-view" class="card view active">
+        <h2>NOU TORNEIG</h2>
+        <div style="text-align: center;">
+            <p style="color: var(--text-dim); font-size: 0.8rem; margin-bottom: 10px;">Introdueix el nom de la competició</p>
+            <input type="text" id="tournament-name-input" class="big-input" placeholder="OPEN ESTIU 2024" spellcheck="false">
+            <button class="main-btn" onclick="anarAJugadors()">CONTINUAR</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA JUGADORS: CONVOCATÒRIA -->
+    <div id="setup-view" class="card view">
+        <h2>CONVOCATÒRIA</h2>
+        <div class="player-grid" id="player-inputs"></div>
+        <div style="margin-top: 25px;">
+            <button class="main-btn" onclick="iniciarTorneig()">GENERAR QUADRE</button>
+            <button class="secondary-btn" style="margin-top: 10px;" onclick="tornarAInici()">← Nom Torneig</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA TORNEIG: QUADRE I RÀNQUING -->
+    <div id="tournament-view" class="view">
+        <button class="secondary-btn" onclick="tornarAJugadors()">← Modificar Jugadors</button>
+        
+        <div class="card" id="matches-container">
+            <div class="round-header">
+                <button class="nav-btn" onclick="canviarRonda(-1)">‹</button>
+                <div class="round-title-text" id="round-title">RONDA 1</div>
+                <button class="nav-btn" onclick="canviarRonda(1)">›</button>
+            </div>
+            
+            <div id="match-list"></div>
+        </div>
+
+        <div class="card">
+            <h2>RÀNQUING ACTUAL</h2>
+            <div id="ranking-list"></div>
+            <button class="danger-btn" onclick="resetTorneigComplet()">ESBORRAR I FINALITZAR TORNEIG</button>
+        </div>
+    </div>
+</div>
+
+<!-- Enllaç al fitxer de lògica -->
+<script src="script.js"></script>
+</body>
+</html>
